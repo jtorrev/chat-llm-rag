@@ -42,19 +42,19 @@ const nextConfig = {
     return defaultRedirects.concat([
       {
         source: "/api/chat/send-message:params*",
-        destination: "http://192.168.100.65/chat/send-message:params*", // Proxy to Backend
+        destination: "http://52.205.173.84/chat/send-message:params*", // Proxy to Backend
         permanent: true,
       },
       {
         source: "/api/query/stream-answer-with-quote:params*",
         destination:
-          "http://192.168.100.65/query/stream-answer-with-quote:params*", // Proxy to Backend
+          "http://52.205.173.84/query/stream-answer-with-quote:params*", // Proxy to Backend
         permanent: true,
       },
       {
         source: "/api/query/stream-query-validation:params*",
         destination:
-          "http://192.168.100.65/query/stream-query-validation:params*", // Proxy to Backend
+          "http://52.205.173.84/query/stream-query-validation:params*", // Proxy to Backend
         permanent: true,
       },
     ]);
