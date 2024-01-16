@@ -18,7 +18,7 @@ logger = setup_logger()
 
 
 def get_model_app() -> FastAPI:
-    application = FastAPI(title="Danswer Model Server", version=__version__)
+    application = FastAPI(title="Chat Model Server", version=__version__)
 
     application.include_router(encoders_router)
     application.include_router(custom_models_router)
@@ -45,7 +45,7 @@ app = get_model_app()
 
 if __name__ == "__main__":
     logger.info(
-        f"Starting Danswer Model Server on http://{MODEL_SERVER_ALLOWED_HOST}:{str(MODEL_SERVER_PORT)}/"
+        f"Starting Chat Model Server on http://{MODEL_SERVER_ALLOWED_HOST}:{str(MODEL_SERVER_PORT)}/"
     )
     logger.info(f"Model Server Version: {__version__}")
     uvicorn.run(app, host=MODEL_SERVER_ALLOWED_HOST, port=MODEL_SERVER_PORT)

@@ -15,7 +15,7 @@ from shared_models.model_server_models import RerankResponse
 
 logger = setup_logger()
 
-WARM_UP_STRING = "Danswer is amazing"
+WARM_UP_STRING = "Chat is amazing"
 
 router = APIRouter(prefix="/encoder")
 

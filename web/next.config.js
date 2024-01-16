@@ -6,12 +6,17 @@ const version = env_version || package_version;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  logging:{
+    fetches:{
+      fullUrl:true,
+    }
+  },
   output: "standalone",
   rewrites: async () => {
     // In production, something else (nginx in the one box setup) should take
     // care of this rewrite. TODO (chris): better support setups where
     // web_server and api_server are on different machines.
-    if (process.env.NODE_ENV === "production") return [];
+    // if (process.env.NODE_ENV === "production") return [];
 
     return [
       {
@@ -32,24 +37,24 @@ const nextConfig = {
       },
     ];
 
-    if (process.env.NODE_ENV === "production") return defaultRedirects;
+    // if (process.env.NODE_ENV === "production") return defaultRedirects;
 
     return defaultRedirects.concat([
       {
         source: "/api/chat/send-message:params*",
-        destination: "http://127.0.0.1:8080/chat/send-message:params*", // Proxy to Backend
+        destination: "http://192.168.100.65/chat/send-message:params*", // Proxy to Backend
         permanent: true,
       },
       {
         source: "/api/query/stream-answer-with-quote:params*",
         destination:
-          "http://127.0.0.1:8080/query/stream-answer-with-quote:params*", // Proxy to Backend
+          "http://192.168.100.65/query/stream-answer-with-quote:params*", // Proxy to Backend
         permanent: true,
       },
       {
         source: "/api/query/stream-query-validation:params*",
         destination:
-          "http://127.0.0.1:8080/query/stream-query-validation:params*", // Proxy to Backend
+          "http://192.168.100.65/query/stream-query-validation:params*", // Proxy to Backend
         permanent: true,
       },
     ]);

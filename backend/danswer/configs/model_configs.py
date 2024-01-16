@@ -86,6 +86,10 @@ FAST_GEN_AI_MODEL_VERSION = (
 GEN_AI_API_KEY = (
     os.environ.get("GEN_AI_API_KEY", os.environ.get("OPENAI_API_KEY")) or None
 )
+# os.environ["OPENAI_API_KEY"] = GEN_AI_API_KEY
+# os.environ["REPLICATE_API_TOKEN"] = GEN_AI_API_KEY
+
+print(f"***************************** {GEN_AI_API_KEY}")
 
 # API Base, such as (for Azure): https://danswer.openai.azure.com/
 GEN_AI_API_ENDPOINT = os.environ.get("GEN_AI_API_ENDPOINT") or None

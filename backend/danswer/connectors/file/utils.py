@@ -8,7 +8,11 @@ from typing import IO
 
 from danswer.configs.app_configs import FILE_CONNECTOR_TMP_STORAGE_PATH
 
-_VALID_FILE_EXTENSIONS = [".txt", ".zip", ".pdf", ".md", ".mdx"]
+_VALID_FILE_EXTENSIONS = [".zip", ".mdx",
+                          ".doc", ".docx", ".ppt", ".pptx", ".odt", ".epub", ".csv", ".tsv", ".xlsx",".xls",
+                          ".eml", ".msg", ".xml", ".html", ".rst", ".json", ".rtf",
+                          ".txt",".pdf", ".md" # Los tiene unstrutured pero actualmente se realiza con el extractor original
+                          ]
 
 
 def get_file_ext(file_path_or_name: str | Path) -> str:

@@ -118,7 +118,7 @@ def include_router_with_global_prefix_prepended(
 
 
 def get_application() -> FastAPI:
-    application = FastAPI(title="Danswer Backend", version=__version__)
+    application = FastAPI(title="Chat Backend", version=__version__)
 
     include_router_with_global_prefix_prepended(application, chat_router)
     include_router_with_global_prefix_prepended(application, query_router)
@@ -188,7 +188,7 @@ def get_application() -> FastAPI:
                 associate_by_email=True,
                 is_verified_by_default=True,
                 # Points the user back to the login page
-                redirect_url=f"{WEB_DOMAIN}/auth/oauth/callback",
+                redirect_url=f"{WEB_DOMAIN}/auth/outh/callback",
             ),
             prefix="/auth/oauth",
             tags=["auth"],
